@@ -10,7 +10,7 @@ st.title("🌦️ Aplikasi Prediksi Hujan Besok")
 # ==============================
 # Load Model & Scaler
 # ==============================
-model_id = "1vw9qq0NPiVOdZpRfq26nTvggEv9mQWBs"
+model_id = "17DrVCNXYRomZOy3Uvf1pg1ndTTlZXyDK"
 model_path = "random_forest_model.joblib"
 scaler_path = "scaler.joblib"
 
@@ -112,12 +112,7 @@ for prefix, val in [("Location", location), ("Region", region),
     if col in X.columns:
         X.loc[0, col] = 1.0
 
-# pastikan semua kolom yang dipakai model ada di X
-for col in feature_names:
-    if col not in X.columns:
-        X[col] = 0.0
-
-# urutkan kolom sesuai training
+# pastikan urutan kolom sesuai training
 X = X[feature_names]
 
 # ==============================

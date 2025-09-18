@@ -112,7 +112,12 @@ for prefix, val in [("Location", location), ("Region", region),
     if col in X.columns:
         X.loc[0, col] = 1.0
 
-# pastikan urutan kolom sesuai training
+# pastikan semua kolom yang dipakai model ada di X
+for col in feature_names:
+    if col not in X.columns:
+        X[col] = 0.0
+
+# urutkan kolom sesuai training
 X = X[feature_names]
 
 # ==============================
